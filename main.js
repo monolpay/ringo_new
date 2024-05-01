@@ -50,11 +50,11 @@ function points(id){
     }
 
     if(setsL == 2){
-        win("left", teamL)
+        win("left")
     }
 
     if(setsR == 2){
-        win("right", teamR)
+        win("right")
     }
     
     //výpis všeho
@@ -108,7 +108,7 @@ function addTeamToTable(name){
 
 }
 
-function win(side, team){
+function win(side){
     document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
 
     if(curColumn<columns-(curRow+1)){
@@ -123,7 +123,10 @@ function win(side, team){
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
     if(side=="left"){
-        scoreboard.push(team)
+        scoreboard.push(teamL)
+    }
+    if(side=="right"){
+        scoreboard.push(teamR)
     }
 
     reset()
