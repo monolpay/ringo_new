@@ -1,0 +1,81 @@
+.left {
+    position: absolute;
+    right: 70%;
+}
+
+.right {
+    position: absolute;
+    left: 70%;
+}
+
+#top {
+
+}
+
+#top>* {
+    position: relative;
+    margin: 10px;
+    text-align: center;
+}
+
+#controls {
+    position: relative;
+    top: 20px;
+}
+
+
+
+#setsL {
+    left: 30%;
+    top: 20%;
+}
+
+div>* {
+    margin: 10px;
+}
+
+#setsR {
+    left: 63%;
+    top: 20%;
+}
+
+button {
+    width: 5%;
+    text-align: center;
+    position: absolute;
+}
+
+#plusL{
+  left: 10%;   
+}
+
+#minusL{
+    left: 15%;   
+  }
+
+#plusR{
+    right: 15%;   
+  }
+  
+#minusR{
+      right: 10%;   
+    }
+  
+
+#pointsL, #pointsR {
+    font-size: 20rem;
+}
+
+#setsL, #setsR {
+    font-size: 10rem;
+}
+
+td {
+    width: 100px;
+    height: 15px;
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}

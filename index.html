@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ringo</title>
+</head>
+<body>
+    <div id="points">
+        <p id="pointsL" class="left">0</p>
+        <p id="pointsR" class="right">0</p>
+
+        <p id="setsL" class="left">0</p>
+        <p id="setsR" class="right">0</p>
+    </div>
+    <div id="controls">
+        <button id="plusL"  onclick="points(this.id, this.class)">+</button>
+        <button id="plusR"  onclick="points(this.id, this.class)">+</button>
+        
+
+        <button id="minusL"  onclick="points(this.id, this.class)" >-</button>
+        <button id="minusR" onclick="points(this.id, this.class)">-</button>
+    </div>
+    <div id="top">
+        <button id="resetL" class="top" onclick="reset()">reset</button>
+        <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="top" onchange="maxPoints=Number(this.value)">
+        
+        <form action="" onsubmit="return newTeam()" method="get" autocomplete="off">
+            <input type="text" name="teamName" placeholder="Název týmu" id="teamName" class="top">
+        <input type="submit" value="Přidat tým">
+        </form>
+        
+    </div>
+        
+    
+    <div id="table">
+        <table>
+            <tr>
+                
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<script src="main.js">
+
+</script>
