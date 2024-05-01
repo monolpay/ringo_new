@@ -83,6 +83,7 @@ let curRow = 1
 function newTeam() {
     let newTeamName = document.getElementById("teamName").value
     addTeamToTable(newTeamName)
+    addTeamToArray(newTeamName);
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
 
@@ -109,8 +110,26 @@ function addTeamToTable(name){
 }
 
 function win(side){
+
+    // initialize order of matches
+    if (ordered_matches.length < 1 && scoreboard.length < 1){
+        ordered_matches = order_tournament();
+    }
+    
+
     document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
 
+    // get current team names
+    if (ordered_matches.length > 0){
+        teamLname, teamRname = ordered_matches.shift();
+    } else{
+        // what will happen, if this is the end of the game?
+    }
+
+    // Here, what will you do with the names you got? Find them in the table or whatever?
+    // maybe it will help, that you have all the teams in a variable, now you can determine the column/row of any team just by finding it in the array (and maybe revers +-1 or whatever, irrelevant)
+
+    // redundant now, remove at will
     if(curColumn<columns-(curRow+1)){
         curColumn++
     }
@@ -118,7 +137,7 @@ function win(side){
         curColumn = 1
         curRow ++
     }
-    
+    // till here redundant
     
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
