@@ -117,3 +117,5 @@ function addTeamToTable(name){
 function win(side, team){
     document.getElementsByTagName("tr").insertAdjacentHTML("beforeend", "<td>")
 }
+
+let fixguthubpls
