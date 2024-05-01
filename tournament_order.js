@@ -44,7 +44,8 @@ function order_tournament()
                 ordered_matches.push([current_team_R, current_team_L]);
             }
         }
-        console.log(using_teams);
+
+        // shift teams for next round
         shift_teams(using_teams);
     }
 
@@ -52,7 +53,7 @@ function order_tournament()
 
 /**
  * 
- * @param {String} name 
+ * @param {String} name Name of the team you want to add.
  */
 function addTeamToArray(name)
 {
@@ -77,9 +78,9 @@ function shift_teams(teams)
 }
 
 /**
- * Order tournament for less teams than 4.
+ * Clear ordered matches, so it is empty.
  */
-function simple_order_tournament()
+function order_tournament_clear()
 {
-    // TO DO
+    ordered_matches = [];
 }

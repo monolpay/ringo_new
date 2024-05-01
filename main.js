@@ -86,12 +86,10 @@ function newTeam() {
     
     // tournament ordering section here
     addTeamToArray(newTeamName);
-    // initialize order of matches
-    if (teams.length > 3){
-        order_tournament();
-    } else {
-        simple_order_tournament();
-    }
+    // initialize new order of matches
+    order_tournament_clear();
+    order_tournament();
+    
     
 
 
