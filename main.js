@@ -49,11 +49,11 @@ function points(id){
         }
     }
 
-    if(setsL = 2){
+    if(setsL == 2){
         win("left", teamL)
     }
 
-    if(setsR = 2){
+    if(setsR == 2){
         win("right", teamR)
     }
     
@@ -76,11 +76,10 @@ function reset(){
     document.getElementById("setsR").textContent=setsR
 }
 
-let curRow = 0
-let curColumn = 0
+let curColumn = 1
+let curRow = 1
+
 function newTeam() {
-    curRow ++
-    curColumn ++
     let newTeamName = document.getElementById("teamName").value
     addTeamToTable(newTeamName)
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
@@ -96,12 +95,12 @@ let rows = 1
 let columns = 1
 
 function addTeamToTable(name){
-    document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td>'+name+'</td>')
-    document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td>'+name+'</td></tr>')
+    document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+name+'</p></td>')
+    document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+name+'</p></td></tr>')
     rows++
     columns++
     for(let i = 1; i<columns-1; i++){
-        document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td></td>')
+        document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
     }
     // for(let i = 1; i<rows; i++){
     //     if(document.getElementsByTagName("tr")[0].getElementsByTagName("td")[i] == document.getElementById("tr")[i].getElementsByTagName("td")[0]){
@@ -115,7 +114,28 @@ function addTeamToTable(name){
 }
 
 function win(side, team){
-    document.getElementsByTagName("tr").insertAdjacentHTML("beforeend", "<td>")
+    document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
+
+    if(curColumn<columns-(curRow+1)){
+        curColumn++
+    }
+    else{
+        curColumn = 1
+        curRow ++
+    }
+    
+    
+    teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
+    teamR = document.getElementsByTagName("tr")[curRow].textContent
+    if(side=="left"){
+        scoreboard.push(team)
+    }
+
+    reset()
+    console.log(scoreboard)
+    document.getElementById("nameL").textContent = teamL
+    document.getElementById("nameR").textContent = teamR
+
 }
 
-let fixguthubpls
+let scoreboard = []
