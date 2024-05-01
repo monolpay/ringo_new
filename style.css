@@ -8,8 +8,8 @@
     left: 70%;
 }
 
-#top {
-
+#both{
+    top: 10px;
 }
 
 #top>* {
@@ -90,4 +90,8 @@ table {
     position: absolute;
     bottom: 5%;
     right: 5%;
+}
+
+html {
+    user-select: none;
 }

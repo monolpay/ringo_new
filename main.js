@@ -24,6 +24,10 @@ function points(id){
         case "minusL":
             pointsL --
             break
+        case "both":
+            pointsL++
+            pointsR++
+            break
 
     }
 
@@ -36,13 +40,13 @@ function points(id){
     }
             //počítání setů
     if(maxPoints > 0){
-        if(pointsL >= maxPoints){
+        if(pointsL >= maxPoints && pointsR != pointsL){
             setsL ++
             pointsL = 0
             pointsR = 0
         }
     
-        if(pointsR >= maxPoints){
+        if(pointsR >= maxPoints && pointsR != pointsL){
             setsR ++
             pointsR = 0
             pointsL = 0
