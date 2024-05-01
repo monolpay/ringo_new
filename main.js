@@ -5,7 +5,7 @@ let setsL = 0
 let setsR = 0
 
 let maxPoints = -1
-
+let nicenedeljicipromenna
 
 
 function points(id){
