@@ -80,10 +80,10 @@ function addTeamToTable(name){
     document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td>'+name+'</td></tr>')
     // rows++
     // columns++
-    for(let i = 0; i<rows; i++){
-        for(let x = 0; x <= columns; x++){
-            document.getElementsByTagName("table")[i].insertAdjacentHTML("beforeend", "<td></td>")
-        }
-    }
+    // for(let i = 0; i<rows; i++){
+    //     for(let x = 0; x <= columns; x++){
+    //         document.getElementsByTagName("table")[i].insertAdjacentHTML("beforeend", "<td></td>")
+    //     }
+    // }
 
 }
