@@ -83,7 +83,18 @@ let curRow = 1
 function newTeam() {
     let newTeamName = document.getElementById("teamName").value
     addTeamToTable(newTeamName)
+    
+    // tournament ordering section here
     addTeamToArray(newTeamName);
+    // initialize order of matches
+    if (teams.length > 3){
+        order_tournament();
+    } else {
+        simple_order_tournament();
+    }
+    
+
+
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
 
@@ -92,7 +103,7 @@ function newTeam() {
     document.getElementById("nameR").textContent = teamR
     return false
 }
-  
+
 
 //přidávání týmu do tabulky a generování nových políček
 let rows = 1
@@ -111,12 +122,6 @@ function addTeamToTable(name){
 
 function win(side){
 
-    // initialize order of matches
-    if (ordered_matches.length < 1 && scoreboard.length < 1){
-        ordered_matches = order_tournament();
-    }
-    
-
     document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
 
     // get current team names
@@ -128,6 +133,7 @@ function win(side){
 
     // Here, what will you do with the names you got? Find them in the table or whatever?
     // maybe it will help, that you have all the teams in a variable, now you can determine the column/row of any team just by finding it in the array (and maybe revers +-1 or whatever, irrelevant)
+    // if you would rather get index of the row/column, just say, no problem.
 
     // redundant now, remove at will
     if(curColumn<columns-(curRow+1)){
