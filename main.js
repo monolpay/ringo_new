@@ -9,6 +9,14 @@ let maxPoints = -1
 let teamL = "Název týmu"
 let teamR = "Název týmu"
 
+let rows = 1
+let columns = 1
+
+let curColumn = 1
+let curRow = 1
+
+let scoreboard = []
+
 //počítání bodů
 function points(id){
     switch(id){
@@ -28,9 +36,7 @@ function points(id){
             pointsL++
             pointsR++
             break
-
     }
-
     if(pointsL < 0){
         pointsL = 0
     }
@@ -79,10 +85,6 @@ function reset(){
     document.getElementById("setsL").textContent=setsL
     document.getElementById("setsR").textContent=setsR
 }
-
-let curColumn = 1
-let curRow = 1
-
     //pojmenovávání nového týmu
 function newTeam() {
     let newTeamName = document.getElementById("teamName").value
@@ -94,9 +96,6 @@ function newTeam() {
     order_tournament_clear();
     order_tournament();
     
-    
-
-
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
 
@@ -106,11 +105,7 @@ function newTeam() {
     return false
 }
 
-
-//přidávání týmu do tabulky a generování nových políček
-let rows = 1
-let columns = 1
-                        
+//přidávání týmu do tabulky a generování nových políček                      
 function addTeamToTable(name){
     document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+name+'</p></td>')
     document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+name+'</p></td></tr>')
@@ -131,6 +126,8 @@ function win(side){
         teamLname, teamRname = ordered_matches.shift();
     } else{
         // what will happen, if this is the end of the game?
+        //
+        // currently nothing, first we need to make sure that it will be at least playable
     }
 
     // Here, what will you do with the names you got? Find them in the table or whatever?
@@ -164,4 +161,4 @@ function win(side){
 
 }
 
-let scoreboard = []
+
