@@ -72,14 +72,14 @@ function newTeam() {
     return false
 }
 
-let rows = 5
-let columns = 5
+let rows = 1
+let columns = 1
 
 function addTeamToTable(name){
     document.getElementsByTagName("tr")[0].insertAdjacentHTML("beforeend", '<td>'+name+'</td>')
     document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td>'+name+'</td></tr>')
-    rows++
-    columns++
+    // rows++
+    // columns++
     for(let i = 0; i<rows; i++){
         for(let x = 0; x <= columns; x++){
             document.getElementsByTagName("table")[i].insertAdjacentHTML("beforeend", "<td></td>")
