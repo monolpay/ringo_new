@@ -95,3 +95,10 @@ table {
 html {
     user-select: none;
 }
+
+tbody:first-of-type{
+    background-color: #f27474;
+}
+td:first-of-type{
+    background-color: #81def7;
+}

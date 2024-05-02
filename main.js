@@ -17,6 +17,10 @@ let curRow = 1
 
 let scoreboard = []
 
+let ended = false
+
+document.getElementById("theOnlyOne").style="background-color: #FFFFFF"
+
 //počítání bodů
 function points(id){
     switch(id){
@@ -113,6 +117,7 @@ function newTeam() {
     console.log(newTeamName)
     document.getElementById("nameL").textContent = teamL
     document.getElementById("nameR").textContent = teamR
+    document.getElementById("teamName").value=""
     return false
 }
 
@@ -128,21 +133,38 @@ function addTeamToTable(name){
 
 }
 
+
+
 function win(side, name){
-    curRow = Math.ceil(teams.indexOf(teamL)/2)+1
-    curColumn = Math.ceil(Math.abs(teams.indexOf(teamR)-(teams.length-1))/2)
+    curRow = teams.indexOf(teamL)+1
+    curColumn = teams.length - 1 - teams.indexOf(teamR) + 1
 
-    if(curRow >= rows-1){
-        curRow = 1
-    }
+    // if(curRow >= rows-1){
+    //     curRow = 1
+    // }
 
-    if(curColumn >= columns - 1){
-        curColumn = 1
+    // if(curColumn >= columns-1){
+    //     curColumn = 1
+    // }
+
+    if(curColumn + curRow > teams.length){
+        let x = curColumn //we need the value before getting overwrited on the line below
+        curColumn = (teams.length + 1) - curRow
+        curRow = (teams.length + 1) - x
     }
 
     console.log(teams, teamL, teamR, curColumn, curRow)
 
-    document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
+    if(side=="left"){
+        scoreboard.push(teamL)
+        document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style="background-color: #81def7"
+    }
+    if(side=="right"){
+        scoreboard.push(teamR)
+        document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style="background-color: #f27474"
+    }
+
+    
 
     // get current team names
     if (ordered_matches.length > 0){
@@ -151,21 +173,11 @@ function win(side, name){
         teamR = curTeams[1]
         console.log("tento blok kodu funguje dobře:"+teamL, teamR)
     } else{
-        if(confirm("Hra skončila. Chcete započít nový turnaj?")){
-            reset()
-        }
-        else {
-            alert("Dobrá. Děkujeme že jste použili toto úžasné RRRingo počítadlo bodů. Vaší dedikaci si opravdu vážíme. Užívejte ringa, života nebo jiných sportovních her. \n S pozdravem\n Vývojář")
-        }
+        ended = true
     }
 
 
-    if(side=="left"){
-        scoreboard.push(teamL)
-    }
-    if(side=="right"){
-        scoreboard.push(teamR)
-    }
+    
 
     reset()
     
@@ -173,6 +185,15 @@ function win(side, name){
     document.getElementById("nameL").textContent = teamL
     document.getElementById("nameR").textContent = teamR
 
+
+    if(ended){
+        if(confirm("Hra skončila. Chcete započít nový turnaj?")){
+            reset()
+        }
+        else {
+            alert("Dobrá. Děkujeme že jste použili toto úžasné RRRingo počítadlo bodů. Vaší dedikaci si opravdu vážíme. Užívejte ringa, života nebo jiných sportovních her. \n S pozdravem\n Vývojář")
+        }
+    }
 }
 
 
