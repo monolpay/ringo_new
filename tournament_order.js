@@ -11,15 +11,15 @@ let ordered_matches = [];
  */
 function order_tournament()
 {
-    // guard odd number of teams
-    if (teams.length % 2 != 0){
-        teams.push("break");
-    }
-
     // create deep-copy of teams
     let using_teams = [];
     for (let i = 0; i < teams.length; i++){
         using_teams.push(teams[i]);
+    }
+
+    // guard odd number of teams
+    if (using_teams.length % 2 != 0){
+        using_teams.push("break");
     }
     
     // all rounds
