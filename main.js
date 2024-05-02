@@ -129,10 +129,14 @@ function addTeamToTable(name){
 }
 
 function win(side, name){
-    curColumn = Math.ceil(teams.indexOf(teamL)/2)+1
-    curRow = Math.ceil(teams.indexOf(teamR)/2)+1
+    curRow = Math.ceil(teams.indexOf(teamL)/2)+1
+    curColumn = Math.ceil(Math.abs(teams.indexOf(teamR)-(teams.length-1))/2)
 
-    if(curColumn >= columns-1){
+    if(curRow >= rows-1){
+        curRow = 1
+    }
+
+    if(curColumn >= columns - 1){
         curColumn = 1
     }
 
