@@ -60,11 +60,11 @@ function points(id){
     }
 
     if(setsL == 2){
-        win("left")
+        win("left", teamL)
     }
 
     if(setsR == 2){
-        win("right")
+        win("right", teamR)
     }
     
     //výpis všeho
@@ -88,16 +88,27 @@ function reset(){
     //pojmenovávání nového týmu
 function newTeam() {
     let newTeamName = document.getElementById("teamName").value
-    addTeamToTable(newTeamName)
+    
     
     // tournament ordering section here
-    addTeamToArray(newTeamName);
+    
+    if(addTeamToArray(newTeamName)){
+        addTeamToTable(newTeamName)
+    }
+    
     // initialize new order of matches
     order_tournament_clear();
     order_tournament();
     
     teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
     teamR = document.getElementsByTagName("tr")[curRow].textContent
+
+    if (ordered_matches.length > 0){ //get current teams before the first game
+        let curTeams = ordered_matches.shift();
+        teamL = curTeams[0]
+        teamR = curTeams[1]
+        console.log("tento blok kodu funguje dobře:"+teamL, teamR)
+    } 
 
     console.log(newTeamName)
     document.getElementById("nameL").textContent = teamL
@@ -117,35 +128,34 @@ function addTeamToTable(name){
 
 }
 
-function win(side){
+function win(side, name){
+    curColumn = Math.ceil(teams.indexOf(teamL)/2)+1
+    curRow = Math.ceil(teams.indexOf(teamR)/2)+1
+
+    if(curColumn >= columns-1){
+        curColumn = 1
+    }
+
+    console.log(teams, teamL, teamR, curColumn, curRow)
 
     document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
 
     // get current team names
     if (ordered_matches.length > 0){
-        teamLname, teamRname = ordered_matches.shift();
+        let curTeams = ordered_matches.shift();
+        teamL = curTeams[0]
+        teamR = curTeams[1]
+        console.log("tento blok kodu funguje dobře:"+teamL, teamR)
     } else{
-        // what will happen, if this is the end of the game?
-        //
-        // currently nothing, first we need to make sure that it will be at least playable
+        if(confirm("Hra skončila. Chcete započít nový turnaj?")){
+            reset()
+        }
+        else {
+            alert("Dobrá. Děkujeme že jste použili toto úžasné RRRingo počítadlo bodů. Vaší dedikaci si opravdu vážíme. Užívejte ringa, života nebo jiných sportovních her. \n S pozdravem\n Vývojář")
+        }
     }
 
-    // Here, what will you do with the names you got? Find them in the table or whatever?
-    // maybe it will help, that you have all the teams in a variable, now you can determine the column/row of any team just by finding it in the array (and maybe revers +-1 or whatever, irrelevant)
-    // if you would rather get index of the row/column, just say, no problem.
 
-    // redundant now, remove at will
-    if(curColumn<columns-(curRow+1)){
-        curColumn++
-    }
-    else{
-        curColumn = 1
-        curRow ++
-    }
-    // till here redundant
-    
-    teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
-    teamR = document.getElementsByTagName("tr")[curRow].textContent
     if(side=="left"){
         scoreboard.push(teamL)
     }
@@ -154,7 +164,7 @@ function win(side){
     }
 
     reset()
-    console.log(scoreboard)
+    
     document.getElementById("winners").textContent=scoreboard
     document.getElementById("nameL").textContent = teamL
     document.getElementById("nameR").textContent = teamR

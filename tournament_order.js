@@ -57,7 +57,14 @@ function order_tournament()
  */
 function addTeamToArray(name)
 {
-    teams.push(name);
+    if (teams.includes(name)){
+        alert("Tento tým již existuje")
+        return false
+    } else {
+        teams.push(name);
+        return true
+    }
+    
 }
 
 /**
