@@ -2,6 +2,12 @@ let teams = [];
 
 let ordered_matches = [];
 
+/**
+ * My variables and functions also should be in the class - probably the same as yours, it could be called sth like Tournament, so it is clear, it's supervising the whole tournament.
+ * Also, another class should be probably Match - one match between two teams has much own functionality.
+ * PRO tip: every class should be in it's own file.
+ */
+
 
 /**
  * Determines an order for games and returns them in array.
@@ -57,6 +63,9 @@ function order_tournament()
  */
 function addTeamToArray(name)
 {
+    /**
+     * You shouldn't add the functionality of alert and return to this function, is deserves its own function.
+     */
     if (teams.includes(name)){
         alert("Tento tým již existuje")
         return false
