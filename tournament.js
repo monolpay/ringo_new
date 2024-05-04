@@ -14,8 +14,8 @@ class Tournament {
     order() {
         // create deep-copy of teams
         let using_teams = [];
-        for (let i = 0; i < teams.length; i++) {
-            using_teams.push(teams[i]);
+        for (let i = 0; i < this.teams.length; i++) {
+            using_teams.push(this.teams[i]);
         }
 
         // guard odd number of teams
@@ -40,15 +40,15 @@ class Tournament {
 
                 // alternate between L/R each round => more fair
                 if (i % 2 == 0) {
-                    ordered_matches.push([current_team_L, current_team_R]);
+                    this.ordered_matches.push([current_team_L, current_team_R]);
                 } else {
-                    ordered_matches.push([current_team_R, current_team_L]);
+                    this.ordered_matches.push([current_team_R, current_team_L]);
                 }
             }
 
             // shift teams for next round
             //TADY MŮÝE BÝT PROBLÉM !!!!!!
-            shift_teams(using_teams);
+            this.shift_teams(using_teams);
         }
 
 
@@ -56,45 +56,49 @@ class Tournament {
 
     shift_teams(teams) {
         // shift all except the first (no move at all) and the last (move individually)
-        let temp = teams[1];
-        for (let i = 2; i < teams.length; i++) {
-            let temp2 = teams[i];
-            teams[i] = temp;
+        let temp = this.teams[1];
+        for (let i = 2; i < this.teams.length; i++) {
+            let temp2 = this.teams[i];
+            this.teams[i] = temp;
             temp = temp2;
         }
         // shift the last one
-        teams[1] = temp;
+        this.teams[1] = temp;
     }
 
     order_tournament_clear() {
-        ordered_matches = [];
+        this.ordered_matches = [];
     }
 
     newTeam() {
         let newTeamName = document.getElementById("teamName").value
-        const newTeam = Team(newTeamName)
+        const newTeam = new Team(newTeamName)
 
 
         // tournament ordering section here
 
-        if (addTeamToArray(newTeamName)) {
-            render.updateTable(this.teams)
+        if (this.addTeamToArray(newTeamName)) {
+            this.render.updateTable(this.teams)
         }
 
         // initialize new order of matches
-        order_tournament_clear();
+        this.order_tournament_clear();
         this.order();
 
-        if (ordered_matches.length > 0) { //get current teams before the first game
+        if (this.ordered_matches.length > 0) { //get current teams before the first game
             let teamL
             let teamR
             teamL, teamR = ordered_matches.shift();
+
+            this.currMatch = new Match(this, teamL, teamR)
+            render.setMatch(this.currMatch)
+            render.updateTeams()
         }
 
-        this.currMatch = Match(this, teamL, teamR)
-        render.setMatch(this.currMatch)
 
-        render.updateTeams()
+        
+
+        
         document.getElementById("teamName").value = ""
         return false
     }
@@ -108,7 +112,7 @@ class Tournament {
                 return false
             }
         }
-        teams.push(name);
+        this.teams.push(new Team(name));
         return true
 
     }

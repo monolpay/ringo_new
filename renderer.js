@@ -1,6 +1,6 @@
 class Renderer {
-    rows
-    columns
+    rows = 1
+    columns = 1
     t
     constructor(t){
         this.t = t
@@ -28,12 +28,14 @@ class Renderer {
     }
 
     updateTable(teams){
-        for(i=0; i<teams.length; i++)
-            document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i]+'</p></td>')
-            document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i]+'</p></td></tr>')
-            rows++
-            columns++
-        for(let i = 1; i<columns-1; i++){ //generování prázdných políček
+        for(let i=0; i<teams.length; i++){
+            document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i].name+'</p></td>')
+            document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i].name+'</p></td></tr>')
+            this.rows++
+            this.columns++
+        }
+            
+        for(let i = 1; i<this.columns-1; i++){ //generování prázdných políček
             document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
         }
     }
