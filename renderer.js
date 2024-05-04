@@ -6,7 +6,10 @@ class Renderer {
     }
 
     updatePoints(){
-
+        document.getElementById("pointsL").textContent = Match.pointsL
+        document.getElementById("pointsR").textContent = Match.pointsR
+        document.getElementById("setsL").textContent = Match.setsL
+        document.getElementById("setsR").textContent = Match.setsR
     }
 
     updateScoreboard(){
