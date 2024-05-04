@@ -1,4 +1,6 @@
 class Match {
+    tournament
+
     teamL
     teamR
 
@@ -8,13 +10,20 @@ class Match {
     setsL = 0
     setsR = 0
 
-    constructor(teamL, teamR) {
+    Side = Object.freeze({
+        LEFT:0,
+        RIGHT:1
+    })
+
+    constructor(tournament, teamL, teamR) {
+        this.tournament = tournament
         this.teamL = teamL
         this.teamR = teamR
 
     }
 
     win(side) {
+        /*
         curRow = teams.indexOf(teamL) + 1
         curColumn = teams.length - 1 - teams.indexOf(teamR) + 1
 
@@ -40,7 +49,7 @@ class Match {
         /**
          * New functionality, should be in own function.
          * Also, the confirm is interrupting everything, so the subsequent steps are not done until it's confirmed - including coloring the table and displaying the scoreboard.
-         */
+         *
         // get current team names
         if (ordered_matches.length > 0) {
             let curTeams = ordered_matches.shift();
@@ -69,7 +78,7 @@ class Match {
 
         /**
          * OK
-         */
+         *
         if (side == "left") {
             scoreboard.push(teamL)
         }
@@ -80,11 +89,13 @@ class Match {
         reset()
         /**
          * Document.get... should be in it's own function in the visual class.
-         */
+         *
         document.getElementById("winners").textContent = scoreboard
         document.getElementById("nameL").textContent = teamL
         document.getElementById("nameR").textContent = teamR
-
+        */
+        
+        this.tournament.matchEnded(side);
     }
 
     points(button) {
@@ -107,35 +118,56 @@ class Match {
                 break
         }
 
-        
+        if (button == Button.BOTH) {
+            return;
+        }
 
+        this.checkPoints();
+
+        if (this.shouldEndSet()) {
+            this.resolveSetEnd();
+        }
+    }
+
+    checkPoints() {
         if (pointsL < 0) {
-            pointsL = 0
+            pointsL = 0;
         }
 
         if (pointsR < 0) {
-            pointsR = 0
+            pointsR = 0;
+        }
+    }
+
+    shouldEndSet() {
+        if (maxPoints <= 0) {
+            return false;
         }
 
-        if (maxPoints > 0) {
-            if (pointsL >= maxPoints && pointsR != pointsL) {
-                setsL++
-                pointsL = 0
-                pointsR = 0
-            }
-
-            if (pointsR >= maxPoints && pointsR != pointsL) {
-                setsR++
-                pointsR = 0
-                pointsL = 0
-            }
-        }
-        if (setsL >= maxSets) {
-            win("left")
+        if (this.pointsL == this.pointsR) {
+            return false;
         }
 
-        if (setsR >= maxSets) {
-            win("right")
+        if (this.pointsL >= maxPoints || this.pointsR >= maxPoints) {
+            return true;
+        }
+
+    }
+
+    resolveSetEnd() {
+        if (this.pointsL > this.pointsR) {
+            this.setsL++;
+        } else {
+            this.setsR++;
+        }
+        this.resolveMatchEnd();
+    }
+
+    resolveMatchEnd() {
+        if (this.setsL > this.setsR) {
+            this.win(this.Side.LEFT);
+        } else {
+            this.win(this.Side.RIGHT);
         }
     }
 }
