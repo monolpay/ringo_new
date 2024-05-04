@@ -115,6 +115,18 @@ class Tournament {
 
     }
 
+    matchEnded(side){
+        if (side == this.currMatch.Side.LEFT){
+            this.scoreboard.push(this.currMatch.teamL)
+        }else {
+            this.scoreboard.push(this.currMatch.teamR)
+        }
+        // should be in own function, its duplicate
+        this.currMatch = this.ordered_matches.shift()
+        this.render.setMatch(this.currMatch)
+        this.render.updateTeams()
+    }
+
     reset(){
         //TO DO
     }

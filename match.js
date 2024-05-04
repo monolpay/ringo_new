@@ -77,7 +77,7 @@ class Match {
 
     shouldEndSet() {
         const maxPoints = this.tournament.maxPoints
-        if (this.tournament.maxPoints <= 0) {
+        if (maxPoints <= 0) {
             return false;
         }
 
