@@ -53,9 +53,7 @@ class Match {
                 break
         }
 
-        if (button == Button.BOTH) {
-            return;
-        }
+
 
         match.checkPoints();
         match.render.updatePoints()
