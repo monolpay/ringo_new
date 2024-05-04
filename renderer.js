@@ -38,8 +38,10 @@ class Renderer {
             this.columns++
         }
             
-        for(let i = 1; i<this.columns-1; i++){ //generování prázdných políček
-            document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
+        for(let i = 1; i<this.rows-1; i++){ //generování prázdných políček
+            for(let x = 1; x<this.columns-i; x++){
+                document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
+            }
         }
     }
 
