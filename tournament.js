@@ -89,13 +89,13 @@ class Tournament {
         this.order();
 
         if (this.ordered_matches.length > 0) { //get current teams before the first game
-            let teamL
-            let teamR
-            teamL, teamR = ordered_matches.shift();
+            const order = this.ordered_matches.shift();
+            const teamL = order[0]
+            const teamR = order[1]
 
             this.currMatch = new Match(this, teamL, teamR)
-            render.setMatch(this.currMatch)
-            render.updateTeams()
+            this.render.setMatch(this.currMatch)
+            this.render.updateTeams()
         }
 
 
@@ -108,7 +108,7 @@ class Tournament {
 
     addTeamToArray(name) {
 
-        for (team in this.teams) {
+        for (const team in this.teams) {
             if (team.name == name) {
 
                 alert("Tento tým již existuje")

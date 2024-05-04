@@ -23,11 +23,14 @@ class Renderer {
     }
 
     updateTeams(){
-        document.getElementById("nameL").textContent = this.match.teamL
-        document.getElementById("nameR").textContent = this.match.teamR
+        document.getElementById("nameL").textContent = this.match.teamL.name
+        document.getElementById("nameR").textContent = this.match.teamR.name
     }
 
     updateTable(teams){
+        this.columns = 1
+        this.rows = 1
+        document.getElementsByTagName("table")[0].innerHTML="<tr><td id='theOnlyOne'></td></tr>"
         for(let i=0; i<teams.length; i++){
             document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i].name+'</p></td>')
             document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i].name+'</p></td></tr>')
