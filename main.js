@@ -51,9 +51,7 @@ function points(id){
             pointsR++
             break
     }
-    /**
-     * Don't know why this is here?
-     */
+    
     if(pointsL < 0){
         pointsL = 0
     }
@@ -84,26 +82,18 @@ function points(id){
      * Also, 2 is magic constant, should be at least variable editable in the code, better via front-end.
      */
     if(setsL >= maxSets){
-        win("left", teamL)
+        win("left")
     }
 
     if(setsR >= maxSets){
-        win("right", teamR)
+        win("right")
     }
     
     /**
      * New functionality, should be in another function.
      * Also, everything related to visuals should be ideally in it's own class.
      */
-    //výpis všeho
-    document.getElementById("pointsR").textContent=pointsR
-    document.getElementById("pointsL").textContent=pointsL
-    document.getElementById("setsL").textContent=setsL
-    document.getElementById("setsR").textContent=setsR
-    /**
-     * harmless, but useless
-     */
-    console.log(pointsL, pointsR, maxPoints)
+    draw()
 }
 
 function reset(){
@@ -111,17 +101,12 @@ function reset(){
     pointsR = 0
     setsL = 0
     setsR = 0
-    /**
-     * As mentioned before, shoud be in another function - doing this removes duplicity also
-     */
-    document.getElementById("pointsR").textContent=pointsR
-    document.getElementById("pointsL").textContent=pointsL
-    document.getElementById("setsL").textContent=setsL
-    document.getElementById("setsR").textContent=setsR
+    draw()
 }
     //pojmenovávání nového týmu
 function newTeam() {
     let newTeamName = document.getElementById("teamName").value
+    const newTeam = Team(newTeamName)
     
     
     // tournament ordering section here
@@ -149,20 +134,9 @@ function newTeam() {
      * Maybe in its own function, doesn't feel right to be here, but not that bad.
      */
     if (ordered_matches.length > 0){ //get current teams before the first game
-        let curTeams = ordered_matches.shift();
-        teamL = curTeams[0]
-        teamR = curTeams[1]
-        /**
-         * Very funny but useless log.
-         */
-        console.log("tento blok kodu funguje dobře:"+teamL, teamR)
+        teamL, teamR = ordered_matches.shift();
     } 
 
-    /**
-     * Funny log, but I cannot digest what it means from the console. Remove, or make it more informative eg. The name of the new team is: ...
-     * The document.getElement... should have it's own function, ideally in visual class.
-     */
-    console.log(newTeamName)
     document.getElementById("nameL").textContent = teamL
     document.getElementById("nameR").textContent = teamR
     document.getElementById("teamName").value=""
@@ -173,16 +147,7 @@ function newTeam() {
  * OK, belongs to the visual class.
  */
 //přidávání týmu do tabulky a generování nových políček                      
-function addTeamToTable(name){
-    document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+name+'</p></td>')
-    document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+name+'</p></td></tr>')
-    rows++
-    columns++
-    for(let i = 1; i<columns-1; i++){ //generování prázdnýc políček
-        document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
-    }
 
-}
 
 
 
@@ -191,7 +156,7 @@ function addTeamToTable(name){
  * The math is incomprehensible for me, idk why it works.
  * Too omnipotent function, should be split into more smaller ones.
  */
-function win(side, name){
+function win(side){
     curRow = teams.indexOf(teamL)+1
     curColumn = teams.length - 1 - teams.indexOf(teamR) + 1
 
@@ -275,4 +240,9 @@ function win(side, name){
 
 }
 
-
+function draw(){
+    document.getElementById("pointsR").textContent=pointsR
+    document.getElementById("pointsL").textContent=pointsL
+    document.getElementById("setsL").textContent=setsL
+    document.getElementById("setsR").textContent=setsR
+}
