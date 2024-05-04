@@ -2,3 +2,13 @@ statistika hry (délka hry, průměrná délka podání...)
 tabulka s týmy (přidáváním týmů se generuje tabulka, do té se automaticky zapisujou výsledky, tabulka automaticky i mění týmy a volá je na hřiště)
 scoreboard
 keyboard support
+save/load tournament (json)
+bonus: udělat víc oken, který by komunikovaly spolu - přes cookies??? nevíme jestli jde
+
+-----
+
+# Co je třeba dodělat:
+- End of tournament - screen, play again,...
+- okomentovat
+- oddělit úplně třídy a funkčnost, teď je to divný (hlavně render)
+- 
