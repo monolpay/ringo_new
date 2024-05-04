@@ -22,6 +22,14 @@ let curRow = 1
 
 let scoreboard = []
 
+let ended = false
+
+document.getElementById("theOnlyOne").style="background-color: #FFFFFF"
+
+let ended = false
+
+document.getElementById("theOnlyOne").style="background-color: #FFFFFF"
+
 /**
  * case both should be in it's own function - it doesn't need most of the checks..
  * create enum for the switch? but that's just minor, only for not having "magic constants"
@@ -161,6 +169,7 @@ function newTeam() {
     console.log(newTeamName)
     document.getElementById("nameL").textContent = teamL
     document.getElementById("nameR").textContent = teamR
+    document.getElementById("teamName").value=""
     return false
 }
 
@@ -179,29 +188,43 @@ function addTeamToTable(name){
 
 }
 
+
+
 /**
  * param name is given but never used.
  * The math is incomprehensible for me, idk why it works.
  * Too omnipotent function, should be split into more smaller ones.
  */
 function win(side, name){
-    curRow = Math.ceil(teams.indexOf(teamL)/2)+1
-    curColumn = Math.ceil(Math.abs(teams.indexOf(teamR)-(teams.length-1))/2)
+    curRow = teams.indexOf(teamL)+1
+    curColumn = teams.length - 1 - teams.indexOf(teamR) + 1
 
-    if(curRow >= rows-1){
-        curRow = 1
-    }
+    // if(curRow >= rows-1){
+    //     curRow = 1
+    // }
 
-    if(curColumn >= columns - 1){
-        curColumn = 1
+    // if(curColumn >= columns-1){
+    //     curColumn = 1
+    // }
+
+    if(curColumn + curRow > teams.length){
+        let x = curColumn //we need the value before getting overwrited on the line below
+        curColumn = (teams.length + 1) - curRow
+        curRow = (teams.length + 1) - x
     }
 
     console.log(teams, teamL, teamR, curColumn, curRow)
 
-    /**
-     * In it's own function, in visual class.
-     */
-    document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].textContent=setsL+":"+setsR
+    if(side=="left"){
+        scoreboard.push(teamL)
+        document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style="background-color: #81def7"
+    }
+    if(side=="right"){
+        scoreboard.push(teamR)
+        document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style="background-color: #f27474"
+    }
+
+    
 
     /**
      * New functionality, should be in own function.
@@ -214,6 +237,20 @@ function win(side, name){
         teamR = curTeams[1]
         console.log("tento blok kodu funguje dobře:"+teamL, teamR)
     } else{
+        ended = true
+    }
+
+
+    
+
+    reset()
+    
+    document.getElementById("winners").textContent=scoreboard
+    document.getElementById("nameL").textContent = teamL
+    document.getElementById("nameR").textContent = teamR
+
+
+    if(ended){
         if(confirm("Hra skončila. Chcete započít nový turnaj?")){
             reset()
         }
