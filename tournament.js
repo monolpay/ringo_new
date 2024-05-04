@@ -78,25 +78,11 @@ class Tournament {
         if (addTeamToArray(newTeamName)) {
             addTeamToTable(newTeamName)
         }
-        /**
-         * What would happen, if it's not a new team? why should compute the tournament again? waste of resources.
-         * Better to add guard condition: if team already in teams: alert and return. If not, do all of this.
-         * Also, you shouldn't use addTeamToArray for this - that's mixing responsibilities, rather create function to check if team in teams.
-         */
 
         // initialize new order of matches
         order_tournament_clear();
-        order_tournament();
+        Tournament.order();
 
-        /**
-         * Should be a function in the visual class.
-         */
-        teamL = document.getElementsByTagName("tr")[0].getElementsByTagName("td")[curColumn].textContent
-        teamR = document.getElementsByTagName("tr")[curRow].textContent
-
-        /**
-         * Maybe in its own function, doesn't feel right to be here, but not that bad.
-         */
         if (ordered_matches.length > 0) { //get current teams before the first game
             teamL, teamR = ordered_matches.shift();
         }
