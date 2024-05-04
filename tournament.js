@@ -76,7 +76,7 @@ class Tournament {
         // tournament ordering section here
 
         if (addTeamToArray(newTeamName)) {
-            addTeamToTable(newTeamName)
+            Renderer.updateTable(this.teams)
         }
 
         // initialize new order of matches
@@ -87,8 +87,7 @@ class Tournament {
             teamL, teamR = ordered_matches.shift();
         }
 
-        document.getElementById("nameL").textContent = teamL
-        document.getElementById("nameR").textContent = teamR
+        Renderer.updateTeams()
         document.getElementById("teamName").value = ""
         return false
     }

@@ -1,13 +1,23 @@
-class Render {
+class Renderer {
     rows
     columns
     constructor(){
-        this.points = 
-    }
-
-    update(){
 
     }
+
+    updatePoints(){
+
+    }
+
+    updateScoreboard(){
+
+    }
+
+    updateTeams(){
+        document.getElementById("nameL").textContent = teamL
+        document.getElementById("nameR").textContent = teamR
+    }
+
     updateTable(teams){
         for(i=0; i<teams.length; i++)
             document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i]+'</p></td>')
@@ -19,6 +29,11 @@ class Render {
         }
     }
 
-    
+    updateAll(){
+        this.updatePoints()
+        this.updateScoreboard()
+        this.updateTable()
+        this.updateTeams
+    }
 }
 

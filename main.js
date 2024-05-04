@@ -81,13 +81,13 @@ function points(id){
      * New functionality, should be in another function.
      * Also, 2 is magic constant, should be at least variable editable in the code, better via front-end.
      */
-    if(setsL >= maxSets){
-        win("left")
-    }
+    // if(setsL >= maxSets){
+    //     win("left")
+    // }
 
-    if(setsR >= maxSets){
-        win("right")
-    }
+    // if(setsR >= maxSets){
+    //     win("right")
+    // }
     
     /**
      * New functionality, should be in another function.
@@ -103,17 +103,3 @@ function reset(){
 }
     //pojmenovávání nového týmu
 
-
-/**
- * OK, belongs to the visual class.
- */
-//přidávání týmu do tabulky a generování nových políček                      
-
-
-
-
-/**
- * param name is given but never used.
- * The math is incomprehensible for me, idk why it works.
- * Too omnipotent function, should be split into more smaller ones.
- */
