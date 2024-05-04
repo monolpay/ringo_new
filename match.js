@@ -22,9 +22,10 @@ class Match {
         this.teamL = teamL
         this.teamR = teamR
         this.render = render
-        this. pointsL = 0
+        this.pointsL = 0
         this.pointsR = 0
-
+        this.setsL = 0
+        this.setsR = 0
     }
 
     win(side) {
@@ -103,6 +104,9 @@ class Match {
     }
 
     resolveMatchEnd() {
+        if (this.setsL < this.tournament.maxSets && this.setsR < this.tournament.maxSets){
+            return
+        }
         if (this.setsL > this.setsR) {
             this.win(this.Side.LEFT);
         } else {
@@ -112,7 +116,7 @@ class Match {
     }
 
     resetPoints(){
-        this. pointsL = 0
+        this.pointsL = 0
         this.pointsR = 0
     }
 }
