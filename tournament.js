@@ -120,4 +120,8 @@ class Tournament {
         return true
 
     }
+
+    reset(){
+        //TO DO
+    }
 }

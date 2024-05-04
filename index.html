@@ -20,13 +20,13 @@
         <p id="setsR" class="right">0</p>
     </div>
     <div id="controls">
-        <button id="plusL"  onclick="points(this.id)">+</button>
-        <button id="plusR"  onclick="points(this.id)">+</button>
+        <button id="plusL"  onclick="points(Button.PLUSL)">+</button>
+        <button id="plusR"  onclick="points(Button.PLUSR)">+</button>
         
 
-        <button id="minusL"  onclick="points(this.id)" >-</button>
-        <button id="minusR" onclick="points(this.id)">-</button>
-        <button id="both" class="top" onclick="points(this.id)">bod pro oba</button>
+        <button id="minusL"  onclick="points(Button.MINUSL)" >-</button>
+        <button id="minusR" onclick="points(Button.MINUSR)">-</button>
+        <button id="both" class="top" onclick="points(Button.BOTH)">bod pro oba</button>
     </div>
     <div id="top">
         <button id="resetL" class="top" onclick="reset()">reset</button>
@@ -58,11 +58,9 @@
     
 </body>
 </html>
-<script src="main.js">
-
-</script>
-<script src="tournament_order.js">
-
-</script>
-
+<script src="main.js"></script>
+<script src="tournament_order.js"></script>
 <script src="team.js"></script>
+<script src="tournament.js"></script>
+<script src="match.js"></script>
+<script src="buttons.js"></script>
