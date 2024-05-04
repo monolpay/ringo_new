@@ -100,8 +100,8 @@ class Match {
     }
 
     static points(button, tournament) {
-        if (tournament.currMatch !== this){
-            return;
+        if (tournament.currMatch.teamL != this.teamL || tournament.currMatch.teamR != this.teamR){
+            return
         }
 
         switch (button) {
