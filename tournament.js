@@ -40,14 +40,13 @@ class Tournament {
 
                 // alternate between L/R each round => more fair
                 if (i % 2 == 0) {
-                    this.ordered_matches.push([current_team_L, current_team_R]);
+                    this.ordered_matches.push(new Match(this,current_team_L,current_team_R));
                 } else {
-                    this.ordered_matches.push([current_team_R, current_team_L]);
+                    this.ordered_matches.push(new Match(this,current_team_R,current_team_L));
                 }
             }
 
             // shift teams for next round
-            //TADY MŮÝE BÝT PROBLÉM !!!!!!
             this.shift_teams(using_teams);
         }
 
@@ -75,7 +74,6 @@ class Tournament {
 
     newTeam() {
         let newTeamName = document.getElementById("teamName").value
-        const newTeam = new Team(newTeamName)
 
 
         // tournament ordering section here
@@ -89,11 +87,8 @@ class Tournament {
         this.order();
 
         if (this.ordered_matches.length > 0) { //get current teams before the first game
-            const order = this.ordered_matches.shift();
-            const teamL = order[0]
-            const teamR = order[1]
 
-            this.currMatch = new Match(this, teamL, teamR)
+            this.currMatch = this.ordered_matches.shift()
             this.render.setMatch(this.currMatch)
             this.render.updateTeams()
         }

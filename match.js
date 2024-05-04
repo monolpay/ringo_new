@@ -100,7 +100,7 @@ class Match {
     }
 
     static points(button, tournament) {
-        if (tournament.currMatch != this){
+        if (tournament.currMatch !== this){
             return;
         }
 
