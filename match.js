@@ -64,19 +64,20 @@ class Match {
     }
 
     checkPoints() {
-        if (pointsL < 0) {
-            pointsL = 0;
+        if (this.pointsL < 0) {
+            this.pointsL = 0;
         }
 
-        if (pointsR < 0) {
-            pointsR = 0;
+        if (this.pointsR < 0) {
+            this.pointsR = 0;
         }
     }
 
     
 
     shouldEndSet() {
-        if (maxPoints <= 0) {
+        const maxPoints = this.tournament.maxPoints
+        if (this.tournament.maxPoints <= 0) {
             return false;
         }
 
