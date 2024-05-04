@@ -96,6 +96,11 @@ html {
     user-select: none;
 }
 
+#maxSets {
+    position: absolute;
+    right: 30%;
+}
+
 tbody:first-of-type{
     background-color: #f27474;
 }

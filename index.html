@@ -20,21 +20,22 @@
         <p id="setsR" class="right">0</p>
     </div>
     <div id="controls">
-        <button id="plusL"  onclick="points(this.id)">+</button>
-        <button id="plusR"  onclick="points(this.id)">+</button>
+        <button id="plusL"  onclick="Match.points(Button.PLUSL, t)">+</button>
+        <button id="plusR"  onclick="Match.points(Button.PLUSR, t)">+</button>
         
 
-        <button id="minusL"  onclick="points(this.id)" >-</button>
-        <button id="minusR" onclick="points(this.id)">-</button>
-        <button id="both" class="top" onclick="points(this.id)">bod pro oba</button>
+        <button id="minusL"  onclick="Match.points(Button.MINUSL, t)" >-</button>
+        <button id="minusR" onclick="Match.points(Button.MINUSR, t)">-</button>
+        <button id="both" class="top" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
     </div>
     <div id="top">
         <button id="resetL" class="top" onclick="reset()">reset</button>
-        <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="top" onchange="maxPoints=Number(this.value)">
+        <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="top" onchange="t.maxPoints=Number(this.value)">
+        <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" class="top" onchange="t.maxSets=Number(this.value)">
         
 
         
-        <form action="" onsubmit="return newTeam()" method="get" autocomplete="off">
+        <form action="" onsubmit="return t.newTeam()" method="get" autocomplete="off">
             <input type="text" name="teamName" placeholder="Název týmu" id="teamName" class="top">
         <input type="submit" value="Přidat tým">
         </form>
@@ -57,9 +58,9 @@
     
 </body>
 </html>
-<script src="main.js">
-
-</script>
-<script src="tournament_order.js">
-
-</script>
+<script src="renderer.js"></script>
+<script src="team.js"></script>
+<script src="tournament.js"></script>
+<script src="match.js"></script>
+<script src="buttons.js"></script>
+<script src="main.js"></script>
