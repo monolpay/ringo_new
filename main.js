@@ -76,11 +76,6 @@ function points(id){
             pointsL = 0
         }
     }
-
-    /**
-     * New functionality, should be in another function.
-     * Also, 2 is magic constant, should be at least variable editable in the code, better via front-end.
-     */
     // if(setsL >= maxSets){
     //     win("left")
     // }
@@ -89,10 +84,7 @@ function points(id){
     //     win("right")
     // }
     
-    /**
-     * New functionality, should be in another function.
-     * Also, everything related to visuals should be ideally in it's own class.
-     */
+
 }
 
 function reset(){
@@ -101,5 +93,4 @@ function reset(){
     setsL = 0
     setsR = 0
 }
-    //pojmenovávání nového týmu
 
