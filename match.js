@@ -10,16 +10,20 @@ class Match {
     setsL = 0
     setsR = 0
 
+    render
+
     Side = Object.freeze({
         LEFT:0,
         RIGHT:1
     })
 
-    constructor(tournament, teamL, teamR) {
+    constructor(tournament, teamL, teamR, render) {
         this.tournament = tournament
         this.teamL = teamL
         this.teamR = teamR
-
+        this.render = render
+        this. pointsL = 0
+        this.pointsR = 0
 
     }
 
@@ -125,7 +129,7 @@ class Match {
         }
 
         match.checkPoints();
-
+        match.render.updatePoints()
         if (match.shouldEndSet()) {
             match.resolveSetEnd();
         }
@@ -140,6 +144,8 @@ class Match {
             pointsR = 0;
         }
     }
+
+    
 
     shouldEndSet() {
         if (maxPoints <= 0) {

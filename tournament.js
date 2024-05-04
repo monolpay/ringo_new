@@ -40,9 +40,9 @@ class Tournament {
 
                 // alternate between L/R each round => more fair
                 if (i % 2 == 0) {
-                    this.ordered_matches.push(new Match(this,current_team_L,current_team_R));
+                    this.ordered_matches.push(new Match(this,current_team_L,current_team_R, render));
                 } else {
-                    this.ordered_matches.push(new Match(this,current_team_R,current_team_L));
+                    this.ordered_matches.push(new Match(this,current_team_R,current_team_L, render));
                 }
             }
 
