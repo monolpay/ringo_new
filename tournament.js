@@ -103,9 +103,9 @@ class Tournament {
 
     addTeamToArray(name) {
 
-        for (const team in this.teams) {
-            if (team.name === name) {
-
+        for (let i = 0; i < this.teams.length; i++) {
+            const team = this.teams[i]
+            if (team.name == name) {
                 alert("Tento tým již existuje")
                 return false
             }
