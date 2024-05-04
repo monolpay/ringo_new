@@ -106,5 +106,10 @@ class Match {
         } else {
             this.win(this.Side.RIGHT);
         }
+    this.render.updatePoints()
+    }
+
+    resetPoints(){
+
     }
 }

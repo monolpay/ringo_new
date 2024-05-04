@@ -13,7 +13,7 @@ class Renderer {
 
     updatePoints(){
         document.getElementById("pointsL").textContent = this.match.pointsL
-        document.getElementById("pointsR").textContent = this.matchpointsR
+        document.getElementById("pointsR").textContent = this.match.pointsR
         document.getElementById("setsL").textContent = this.match.setsL
         document.getElementById("setsR").textContent = this.match.setsR
     }
