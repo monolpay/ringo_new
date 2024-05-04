@@ -95,3 +95,8 @@ table {
 html {
     user-select: none;
 }
+
+#maxSets {
+    position: absolute;
+    right: 30%;
+}

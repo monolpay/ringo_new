@@ -9,6 +9,8 @@ let setsR = 0
 
 let maxPoints = -1
 
+let maxSets = -1
+
 let teamL = "Název týmu"
 let teamR = "Název týmu"
 
@@ -77,11 +79,11 @@ function points(id){
      * New functionality, should be in another function.
      * Also, 2 is magic constant, should be at least variable editable in the code, better via front-end.
      */
-    if(setsL == 2){
+    if(setsL >= maxSets){
         win("left", teamL)
     }
 
-    if(setsR == 2){
+    if(setsR >= maxSets){
         win("right", teamR)
     }
     
