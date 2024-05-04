@@ -20,6 +20,7 @@ class Match {
         this.teamL = teamL
         this.teamR = teamR
 
+
     }
 
     win(side) {

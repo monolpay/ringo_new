@@ -7,7 +7,7 @@ class Tournament {
     matchesLeft = this.ordered_matches.length
     render
     constructor() {
-        this.render = new Renderer(this)
+       this.render = new Renderer(this)
     }
 
     order() {
