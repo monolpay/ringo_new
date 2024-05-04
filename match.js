@@ -97,6 +97,7 @@ class Match {
         } else {
             this.setsR++;
         }
+        this.resetPoints()
         this.render.updatePoints();
         this.resolveMatchEnd();
     }
@@ -111,6 +112,7 @@ class Match {
     }
 
     resetPoints(){
-
+        this. pointsL = 0
+        this.pointsR = 0
     }
 }
