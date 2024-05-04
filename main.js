@@ -8,7 +8,6 @@ let setsL = 0
 let setsR = 0
 
 let maxPoints = -1
-
 let maxSets = -1
 
 let teamL = "Název týmu"
@@ -25,9 +24,6 @@ let scoreboard = []
 let ended = false
 
 document.getElementById("theOnlyOne").style="background-color: #FFFFFF"
-
-let ended = false
-
 document.getElementById("theOnlyOne").style="background-color: #FFFFFF"
 
 /**
