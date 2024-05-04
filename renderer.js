@@ -63,16 +63,14 @@ class Renderer {
             curColumn = (t.teams.length + 1) - curRow
             curRow = (t.teams.length + 1) - x
         }
-        /*
-        if (side == "left") {
-            this.t.scoreboard.push(this.match.teamL)
+        
+        if(this.t.scoreboard[this.t.scoreboard.length-1] = this.match.teamL.name){
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #81def7"
         }
-        if (side == "right") {
-            this.t.scoreboard.push(this.match.teamR)
+        else{
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #f27474"
         }
-        */
+        
     }
 }
 
