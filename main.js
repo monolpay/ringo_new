@@ -76,23 +76,15 @@ function points(id){
             pointsL = 0
         }
     }
+    // if(setsL >= maxSets){
+    //     win("left")
+    // }
 
-    /**
-     * New functionality, should be in another function.
-     * Also, 2 is magic constant, should be at least variable editable in the code, better via front-end.
-     */
-    if(setsL >= maxSets){
-        win("left")
-    }
-
-    if(setsR >= maxSets){
-        win("right")
-    }
+    // if(setsR >= maxSets){
+    //     win("right")
+    // }
     
-    /**
-     * New functionality, should be in another function.
-     * Also, everything related to visuals should be ideally in it's own class.
-     */
+
 }
 
 function reset(){
@@ -101,19 +93,4 @@ function reset(){
     setsL = 0
     setsR = 0
 }
-    //pojmenovávání nového týmu
 
-
-/**
- * OK, belongs to the visual class.
- */
-//přidávání týmu do tabulky a generování nových políček                      
-
-
-
-
-/**
- * param name is given but never used.
- * The math is incomprehensible for me, idk why it works.
- * Too omnipotent function, should be split into more smaller ones.
- */
