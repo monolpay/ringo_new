@@ -55,25 +55,24 @@ class Renderer {
     writeToTable(){
         let curRow
         let curColumn
-        curRow = tournament.teams.indexOf(this.match.teamL) + 1
-        curColumn = tournament.teams.length - 1 - t.teams.indexOf(this.match.teamR) + 1
+        curRow = this.t.teams.indexOf(this.match.teamL) + 1
+        curColumn = this.t.teams.length - 1 - t.teams.indexOf(this.match.teamR) + 1
 
         if (curColumn + curRow > t.teams.length) {
             let x = curColumn //we need the value before getting overwrited on the line below
             curColumn = (t.teams.length + 1) - curRow
             curRow = (t.teams.length + 1) - x
         }
-
-        console.log(teams, teamL, teamR, curColumn, curRow)
-
+        /*
         if (side == "left") {
-            t.scoreboard.push(this.match.teamL)
+            this.t.scoreboard.push(this.match.teamL)
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #81def7"
         }
         if (side == "right") {
-            t.scoreboard.push(this.match.teamR)
+            this.t.scoreboard.push(this.match.teamR)
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #f27474"
         }
+        */
     }
 }
 
