@@ -44,7 +44,7 @@ class Renderer {
         this.updatePoints()
         this.updateScoreboard()
         this.updateTable()
-        this.updateTeams
+        this.updateTeams()
     }
 
     writeToTable(){
