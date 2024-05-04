@@ -99,7 +99,11 @@ class Match {
         this.tournament.matchEnded(side);
     }
 
-    points(button) {
+    static points(button, tournament) {
+        if (tournament.currMatch != this){
+            return;
+        }
+
         switch (button) {
             case Button.PLUSR:
                 pointsR++
