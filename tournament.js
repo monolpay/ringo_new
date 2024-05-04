@@ -108,13 +108,16 @@ class Tournament {
     }
 
     addTeamToArray(name) {
-        if (teams.includes(name)) {
-            alert("Tento tým již existuje")
-            return false
-        } else {
-            teams.push(name);
-            return true
+
+        for (team in this.teams) {
+            if (team.name == name) {
+
+                alert("Tento tým již existuje")
+                return false
+            }
         }
+        teams.push(name);
+        return true
 
     }
 }
