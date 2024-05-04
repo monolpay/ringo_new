@@ -126,6 +126,7 @@ class Tournament {
         // should be in own function, its duplicate
         this.currMatch = this.ordered_matches.shift()
         this.render.setMatch(this.currMatch)
+        this.render.updatePoints()
         this.render.updateTeams()
     }
 
