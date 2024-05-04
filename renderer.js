@@ -64,8 +64,9 @@ class Renderer {
             curColumn = (t.teams.length + 1) - curRow
             curRow = (t.teams.length + 1) - x
         }
-        
-        if(this.t.scoreboard[this.t.scoreboard.length-1] = this.match.teamL.name){
+        console.log(this.t.scoreboard[this.t.scoreboard.length-1])
+        console.log(this.match.teamL.name)
+        if(this.t.scoreboard[this.t.scoreboard.length-1].name == this.match.teamL.name){
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #81def7"
         }
         else{
