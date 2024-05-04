@@ -5,8 +5,9 @@ class Tournament {
     maxSets = -1
     maxPoints = -1
     matchesLeft = this.ordered_matches.length
+    render
     constructor() {
-        render = Renderer(this)
+        this.render = new Renderer(this)
     }
 
     order() {
