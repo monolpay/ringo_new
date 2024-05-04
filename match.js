@@ -97,6 +97,7 @@ class Match {
         } else {
             this.setsR++;
         }
+        this.render.updatePoints();
         this.resolveMatchEnd();
     }
 

@@ -121,6 +121,8 @@ class Tournament {
         }else {
             this.scoreboard.push(this.currMatch.teamR)
         }
+        this.render.updateScoreboard()
+        this.render.writeToTable()
         // should be in own function, its duplicate
         this.currMatch = this.ordered_matches.shift()
         this.render.setMatch(this.currMatch)

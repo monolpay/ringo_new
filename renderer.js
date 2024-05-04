@@ -19,7 +19,7 @@ class Renderer {
     }
 
     updateScoreboard(){
-        document.getElementById("winners").textContent = scoreboard
+        document.getElementById("winners").textContent = this.scoreboard
     }
 
     updateTeams(){
