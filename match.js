@@ -1,10 +1,18 @@
 class Match {
-    maxPoints
-    maxSets
+    teamL
+    teamR
 
-    constructor(maxPoints, maxSets){
-        this.maxPoints = maxPoints
-        this.maxSets = maxSets
+    pointsL = 0
+    pointsR = 0
 
+    setsL = 0
+    setsR = 0
+
+    constructor(teamL, teamR){
+        this.teamL = teamL
+        this.teamR = teamR
+    
     }
+
+
 }

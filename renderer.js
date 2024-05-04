@@ -1,6 +1,6 @@
 class Render {
-    points
-    table
+    rows
+    columns
     constructor(){
         this.points = 
     }
@@ -16,7 +16,9 @@ class Render {
             columns++
         for(let i = 1; i<columns-1; i++){ //generování prázdnýc políček
             document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
+        }
     }
-    }
+
+    
 }
 
