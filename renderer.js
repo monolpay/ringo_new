@@ -17,8 +17,8 @@ class Renderer {
     }
 
     updateTeams(){
-        document.getElementById("nameL").textContent = teamL
-        document.getElementById("nameR").textContent = teamR
+        document.getElementById("nameL").textContent = Match.teamL
+        document.getElementById("nameR").textContent = Match.teamR
     }
 
     updateTable(teams){
