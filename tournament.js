@@ -56,7 +56,7 @@ class Tournament {
 
     shift_teams(teams) {
         // shift all except the first (no move at all) and the last (move individually)
-        if (this.teams.length <= 1){
+        if (this.teams.length <= 2){
             return;
         }
         let temp = this.teams[1];
