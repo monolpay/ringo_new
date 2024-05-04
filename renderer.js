@@ -19,7 +19,8 @@ class Renderer {
     }
 
     updateScoreboard(){
-        document.getElementById("winners").textContent = this.scoreboard
+        const name = this.t.scoreboard[this.t.scoreboard.length-1].name
+        document.getElementById("winners").textContent += " "+ name
     }
 
     updateTeams(){
