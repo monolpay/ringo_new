@@ -100,26 +100,23 @@ class Match {
     }
 
     static points(button, tournament) {
-        if (tournament.currMatch.teamL != this.teamL || tournament.currMatch.teamR != this.teamR){
-            return
-        }
-
+        const match = tournament.currMatch
         switch (button) {
             case Button.PLUSR:
-                pointsR++
+                match.pointsR++
                 break
             case Button.MINUSR:
-                pointsR--
+                match.pointsR--
                 break
             case Button.PLUSL:
-                pointsL++
+                match.pointsL++
                 break
             case Button.MINUSL:
-                pointsL--
+                match.pointsL--
                 break
             case Button.BOTH:
-                pointsL++
-                pointsR++
+                match.pointsL++
+                match.pointsR++
                 break
         }
 
@@ -127,10 +124,10 @@ class Match {
             return;
         }
 
-        this.checkPoints();
+        match.checkPoints();
 
-        if (this.shouldEndSet()) {
-            this.resolveSetEnd();
+        if (match.shouldEndSet()) {
+            match.resolveSetEnd();
         }
     }
 
