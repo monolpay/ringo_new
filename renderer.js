@@ -1,15 +1,21 @@
 class Renderer {
     rows
     columns
-    constructor(){
-
+    t
+    constructor(t){
+        this.t = t
     }
 
+    setMatch(match){
+        this.match = match
+    }
+
+
     updatePoints(){
-        document.getElementById("pointsL").textContent = Match.pointsL
-        document.getElementById("pointsR").textContent = Match.pointsR
-        document.getElementById("setsL").textContent = Match.setsL
-        document.getElementById("setsR").textContent = Match.setsR
+        document.getElementById("pointsL").textContent = this.match.pointsL
+        document.getElementById("pointsR").textContent = this.matchpointsR
+        document.getElementById("setsL").textContent = this.match.setsL
+        document.getElementById("setsR").textContent = this.match.setsR
     }
 
     updateScoreboard(){
@@ -17,8 +23,8 @@ class Renderer {
     }
 
     updateTeams(){
-        document.getElementById("nameL").textContent = Match.teamL
-        document.getElementById("nameR").textContent = Match.teamR
+        document.getElementById("nameL").textContent = this.match.teamL
+        document.getElementById("nameR").textContent = this.match.teamR
     }
 
     updateTable(teams){
@@ -27,7 +33,7 @@ class Renderer {
             document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i]+'</p></td></tr>')
             rows++
             columns++
-        for(let i = 1; i<columns-1; i++){ //generování prázdnýc políček
+        for(let i = 1; i<columns-1; i++){ //generování prázdných políček
             document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
         }
     }
@@ -42,23 +48,23 @@ class Renderer {
     writeToTable(){
         let curRow
         let curColumn
-        curRow = Tournament.teams.indexOf(Match.teamL) + 1
-        curColumn = Tournament.teams.length - 1 - Tournament.teams.indexOf(Match.teamR) + 1
+        curRow = tournament.teams.indexOf(this.match.teamL) + 1
+        curColumn = tournament.teams.length - 1 - t.teams.indexOf(this.match.teamR) + 1
 
-        if (curColumn + curRow > Tournament.teams.length) {
+        if (curColumn + curRow > t.teams.length) {
             let x = curColumn //we need the value before getting overwrited on the line below
-            curColumn = (Tournament.teams.length + 1) - curRow
-            curRow = (Tournament.teams.length + 1) - x
+            curColumn = (t.teams.length + 1) - curRow
+            curRow = (t.teams.length + 1) - x
         }
 
         console.log(teams, teamL, teamR, curColumn, curRow)
 
         if (side == "left") {
-            Tournament.scoreboard.push(Match.teamL)
+            t.scoreboard.push(this.match.teamL)
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #81def7"
         }
         if (side == "right") {
-            Tournament.scoreboard.push(Match.teamR)
+            t.scoreboard.push(this.match.teamR)
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #f27474"
         }
     }

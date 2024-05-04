@@ -6,7 +6,7 @@ class Tournament {
     maxPoints = -1
     matchesLeft = this.ordered_matches.length
     constructor() {
-
+        render = Renderer(this)
     }
 
     order() {
@@ -76,18 +76,23 @@ class Tournament {
         // tournament ordering section here
 
         if (addTeamToArray(newTeamName)) {
-            Renderer.updateTable(this.teams)
+           render.updateTable(this.teams)
         }
 
         // initialize new order of matches
         order_tournament_clear();
-        Tournament.order();
+        this.order();
 
         if (ordered_matches.length > 0) { //get current teams before the first game
+            let teamL
+            let teamR
             teamL, teamR = ordered_matches.shift();
         }
 
-        Renderer.updateTeams()
+        match = Match(this, teamL, teamR)
+        render.setMatch(match)
+
+        render.updateTeams()
         document.getElementById("teamName").value = ""
         return false
     }
