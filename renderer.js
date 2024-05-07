@@ -53,6 +53,12 @@ class Renderer {
         this.updateTeams()
     }
 
+    updateAllExceptForScoreboard(){
+        this.updatePoints()
+        this.updateTable()
+        this.updateTeams()
+    }
+
     writeToTable(){
         let curRow
         let curColumn

@@ -29,21 +29,16 @@
         <button id="both" class="top" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
     </div>
     <div id="top">
-        <button id="resetL" class="top" onclick="reset()">reset</button>
+        <button id="resetL" class="top" onclick="t.reset()">reset</button>
         <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="top" onchange="t.maxPoints=Number(this.value)">
         <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" class="top" onchange="t.maxSets=Number(this.value)">
-        
-
-        
-        <form action="" onsubmit="return t.newTeam()" method="get" autocomplete="off">
+          
+        <form action="" onsubmit="return t.newTeam()" method="get" autocomplete="off" >
             <input type="text" name="teamName" placeholder="Název týmu" id="teamName" class="top">
         <input type="submit" value="Přidat tým">
         </form>
         
     </div>
-    
-        
-    
     <div id="table">
         <table>
             <tr>
@@ -64,3 +59,6 @@
 <script src="match.js"></script>
 <script src="buttons.js"></script>
 <script src="main.js"></script>
+<script>
+    
+</script>

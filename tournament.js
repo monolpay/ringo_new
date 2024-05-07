@@ -6,7 +6,7 @@ class Tournament {
     maxPoints = -1
     matchesLeft = this.ordered_matches.length
     render
-    currMatch
+    keyboard
     constructor() {
         this.render = new Renderer(this)
     }
@@ -131,6 +131,9 @@ class Tournament {
     }
 
     reset(){
-        //TO DO
+        this.teams = []
+        this.scoreboard = []
+        this.order_tournament_clear()
+        this.render.updateAllExceptForScoreboard()
     }
 }
