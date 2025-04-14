@@ -1,0 +1,97 @@
+#left {
+    text-align: right;
+}
+
+#center {
+    text-align: center;
+    max-height: min-content;
+    align-self: end;
+}
+
+#right {
+    background-color: aliceblue;
+}
+
+div {
+    /* border: 1px solid green; */
+    margin: 10px;
+}
+
+
+#names p {
+    max-width: fit-content;
+}
+
+#points {
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+}
+
+#points div {
+    width: 100%;
+}
+
+.name {
+    font-size: large;
+}
+
+.point {
+    font-size: 7rem;
+    margin: 10px;
+}
+
+.set {
+    font-size: 4rem;
+    margin: 5px;
+}
+
+
+td {
+    width: 100px;
+    height: 15px;
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    bottom: 2%;
+}
+
+button, .button {
+    background-color: #e30404;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    border: none;
+    text-align: center;
+}
+
+button:hover, .button:hover{
+    background-color: gray;
+}
+
+#controls {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    row-gap: 10px;
+}
+
+#reset {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#form {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+input {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+}

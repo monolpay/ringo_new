@@ -3,44 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new.css">
     <title>Ringo počítadlo</title>
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <div id="names">
-        names
-        <p id="nameL" class="left">Název týmu</p>
-        <p id="nameR" class="right">Název týmu</p>
-    </div>
-    <div id="points">
-        points
-        <p id="pointsL" class="left">0</p>
-        <p id="pointsR" class="right">0</p>
-
-        <p id="setsL" class="left">0</p>
-        <p id="setsR" class="right">0</p>
-    </div>
-    <div id="controls">
-        controls
-        <button id="plusL"  onclick="Match.points(Button.PLUSL, t)">+</button>
-        <button id="plusR"  onclick="Match.points(Button.PLUSR, t)">+</button>
+    <div id="points">    
+        <div id="left">
+            <p id="nameL" class="name">Název týmu</p>
+            <p id="pointsL" class="point">0</p>
+            <p id="setsL" class="set">0</p>
+            <button id="plusL"  onclick="Match.points(Button.PLUSL, t)">+</button>
+            <button id="minusL"  onclick="Match.points(Button.MINUSL, t)" >-</button>
+        </div>
+        <div id="center">        
+            <button id="both" class="bottom" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
+        </div>
+        <div id="right">
+            <p id="nameR" class="name">Název týmu</p>  
+            <p id="pointsR" class="point">0</p>     
+            <p id="setsR" class="set">0</p>
+            <button id="plusR"  onclick="Match.points(Button.PLUSR, t)">+</button> 
+            <button id="minusR" onclick="Match.points(Button.MINUSR, t)">-</button>
+        </div>
         
-
-        <button id="minusL"  onclick="Match.points(Button.MINUSL, t)" >-</button>
-        <button id="minusR" onclick="Match.points(Button.MINUSR, t)">-</button>
-        <button id="both" class="bottom" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
+        
     </div>
-    <div id="bottom">
-        bottom
-        <button id="resetL" class="bottom" onclick="t.reset()">reset</button>
+    
+    <div id="controls">
+        
         <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="bottom" onchange="t.maxPoints=Number(this.value)">
         <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" class="bottom" onchange="t.maxSets=Number(this.value)">
           
-        <form action="" onsubmit="return t.newTeam()" method="post" autocomplete="off" >
+        <form action="" onsubmit="return t.newTeam()" method="post" autocomplete="off"  id="form">
             <input type="text" name="teamName" placeholder="Název týmu" id="teamName" class="bottom">
-        <input type="submit" value="Přidat tým">
+            <input type="submit" value="Přidat tým" class="button" id="addTeam">
         </form>
+        <button id="reset" class="bottom" onclick="t.reset()">Reset</button>
         
     </div>
     <div id="table">
