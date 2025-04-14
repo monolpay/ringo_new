@@ -1,5 +1,5 @@
 class Team {
-    points //total number of sets won
+    points = 0 //total number of sets won
     name
 
     constructor(name){

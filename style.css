@@ -12,10 +12,12 @@
     top: 10px;
 }
 
-#top>* {
+#bottom>* {
     position: relative;
-    margin: 10px;
+    display: inline-block;
+    margin: auto;
     text-align: center;
+    border: 2px solid red;
 }
 
 #controls {
@@ -96,10 +98,6 @@ html {
     user-select: none;
 }
 
-#maxSets {
-    position: absolute;
-    right: 30%;
-}
 
 tbody:first-of-type{
     background-color: #f27474;
@@ -107,3 +105,12 @@ tbody:first-of-type{
 td:first-of-type{
     background-color: #81def7;
 }
+
+div {
+    /* border: 2px solid red; */
+    display: block;
+    min-height: 20px;
+    margin: 10px;
+    background-color: aquamarine;
+}
+

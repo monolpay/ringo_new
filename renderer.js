@@ -19,11 +19,15 @@ class Renderer {
     }
 
     updateScoreboard(){
-        const name = this.t.scoreboard[this.t.scoreboard.length-1].name
-        document.getElementById("winners").textContent += " "+ name
+        document.getElementById('scoreboard').textContent = ""
+        let orderedTeams = sort(this.t.teams)
+        for(let team in orderedTeams){
+            document.getElementById('scoreboard').insertAdjacentHTML("beforeend", "<p>" + this.t.teams[team].name + ": " + this.t.teams[team].points + "</p>") 
+        }
+        
     }
 
-    updateTeams(){
+    updateTeams() {
         document.getElementById("nameL").textContent = this.match.teamL.name
         document.getElementById("nameR").textContent = this.match.teamR.name
     }
@@ -70,9 +74,9 @@ class Renderer {
             curColumn = (t.teams.length + 1) - curRow
             curRow = (t.teams.length + 1) - x
         }
-        console.log(this.t.scoreboard[this.t.scoreboard.length-1])
+        console.log(this.t.winners[this.t.winners.length-1])
         console.log(this.match.teamL.name)
-        if(this.t.scoreboard[this.t.scoreboard.length-1].name == this.match.teamL.name){
+        if(this.t.winners[this.t.winners.length-1].name == this.match.teamL.name){
             document.getElementsByTagName("tr")[curRow].getElementsByTagName("td")[curColumn].style = "background-color: #81def7"
         }
         else{

@@ -1,7 +1,7 @@
 class Tournament {
     teams = []
     ordered_matches = []
-    scoreboard = []
+    winners = []
     maxSets = -1
     maxPoints = -1
     matchesLeft = this.ordered_matches.length
@@ -98,6 +98,7 @@ class Tournament {
 
         
         document.getElementById("teamName").value = ""
+        this.render.updateScoreboard()
         return false
     }
 
@@ -117,9 +118,11 @@ class Tournament {
 
     matchEnded(side){
         if (side == this.currMatch.Side.LEFT){
-            this.scoreboard.push(this.currMatch.teamL)
+            this.winners.push(this.currMatch.teamL)
+            this.currMatch.teamL.points ++
         }else {
-            this.scoreboard.push(this.currMatch.teamR)
+            this.winners.push(this.currMatch.teamR)
+            this.currMatch.teamR.points ++
         }
         this.render.updateScoreboard()
         this.render.writeToTable()
@@ -132,7 +135,7 @@ class Tournament {
 
     reset(){
         this.teams = []
-        this.scoreboard = []
+        this.winners = []
         this.order_tournament_clear()
         this.render.updateAllExceptForScoreboard()
     }
