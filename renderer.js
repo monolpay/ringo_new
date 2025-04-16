@@ -22,7 +22,7 @@ class Renderer {
         document.getElementById('scoreboard').textContent = ""
         let orderedTeams = sort(this.t.teams)
         for(let team in orderedTeams){
-            document.getElementById('scoreboard').insertAdjacentHTML("beforeend", "<p>" + this.t.teams[team].name + ": " + this.t.teams[team].points + "</p>") 
+            document.getElementById('scoreboard').insertAdjacentHTML("beforeend", "<p id='p"+team+"'>" + (Number(team)+1) +": " + this.t.teams[team].name + ": " + this.t.teams[team].points + "</p>") 
         }
         
     }

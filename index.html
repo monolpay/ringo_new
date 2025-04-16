@@ -8,13 +8,20 @@
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 </head>
 <body>
+    <p id="tablet">tablet</p>
+    <p id="desktop">desktop</p>
+    <p id="phone">phone</p>
+
+<div>
+    
+
     <div id="points">    
         <div id="left">
             <p id="nameL" class="name">Název týmu</p>
             <p id="pointsL" class="point">0</p>
             <p id="setsL" class="set">0</p>
-            <button id="plusL"  onclick="Match.points(Button.PLUSL, t)">+</button>
-            <button id="minusL"  onclick="Match.points(Button.MINUSL, t)" >-</button>
+            <button id="minusL" class="pointButton" onclick="Match.points(Button.MINUSL, t)" >-</button>
+            <button id="plusL" class="pointButton" onclick="Match.points(Button.PLUSL, t)">+</button>
         </div>
         <div id="center">        
             <button id="both" class="bottom" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
@@ -23,38 +30,39 @@
             <p id="nameR" class="name">Název týmu</p>  
             <p id="pointsR" class="point">0</p>     
             <p id="setsR" class="set">0</p>
-            <button id="plusR"  onclick="Match.points(Button.PLUSR, t)">+</button> 
-            <button id="minusR" onclick="Match.points(Button.MINUSR, t)">-</button>
+            <button id="minusR" class="pointButton" onclick="Match.points(Button.MINUSR, t)">-</button>
+            <button id="plusR" class="pointButton" onclick="Match.points(Button.PLUSR, t)">+</button> 
         </div>
         
         
     </div>
+    <div id="docasne">
+        <h1>Scoreboard:</h1>
+        <div id="scoreboard"></div>
+    </div>
     
     <div id="controls">
         
-        <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" class="bottom" onchange="t.maxPoints=Number(this.value)">
-        <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" class="bottom" onchange="t.maxSets=Number(this.value)">
+        <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" onchange="t.maxPoints=Number(this.value)">
+        <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" onchange="t.maxSets=Number(this.value)">
           
         <form action="" onsubmit="return t.newTeam()" method="post" autocomplete="off"  id="form">
-            <input type="text" name="teamName" placeholder="Název týmu" id="teamName" class="bottom">
+            <input type="text" name="teamName" placeholder="Název týmu" id="teamName">
             <input type="submit" value="Přidat tým" class="button" id="addTeam">
         </form>
         <button id="reset" class="bottom" onclick="t.reset()">Reset</button>
         
     </div>
-    <div id="table">
+</div>
+    
+    <!-- <div id="table">
         <table>
             <tr>
                 <td id="theOnlyOne"></td>
             </tr>
         </table>
     </div>
-    <div id="docasne">
-        <h2>Scoreboard:</h2>
-        <div id="scoreboard">
-
-        </div>
-    </div>
+     -->
     
 </body>
 </html>

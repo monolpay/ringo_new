@@ -1,5 +1,6 @@
 #left {
     text-align: right;
+    /* border: 1px solid rgb(5, 9, 255); */
 }
 
 #center {
@@ -8,9 +9,7 @@
     align-self: end;
 }
 
-#right {
-    background-color: aliceblue;
-}
+
 
 div {
     /* border: 1px solid green; */
@@ -24,7 +23,7 @@ div {
 
 #points {
     display: grid;
-    grid-template-columns: 5fr 1fr 5fr;
+    grid-template-columns: 10fr 3fr 10fr;
 }
 
 #points div {
@@ -64,10 +63,18 @@ button, .button {
     padding: 10px;
     border: none;
     text-align: center;
+    height: fit-content;
+    min-width: 50px;
+    margin: 2px;
+}
+
+.pointButton {
+    width: 45%;
+    display: inline-block;
 }
 
 button:hover, .button:hover{
-    background-color: gray;
+    background-color: #9c0303;
 }
 
 #controls {
@@ -82,7 +89,7 @@ button:hover, .button:hover{
     grid-column-end: 3;
 }
 
-#form {
+form {
     display: grid;
     grid-template-columns: auto auto;
     column-gap: 10%;
@@ -94,4 +101,91 @@ input {
     width: 300px;
     height: 20px;
     padding: 10px;
+}
+
+#docasne {
+    border: 1px solid black;
+    padding: 10px;
+    
+    
+}
+
+#scoreboard {
+    max-height: 400px;
+    overflow-y: scroll;
+    columns: 2;
+    text-align: right;
+}
+
+#scoreboard p {
+    max-width: fit-content;
+}
+
+#p0 {
+    font-size: x-large;
+    font-weight: 900;
+}
+
+#p1 {
+    font-size: larger;
+    font-weight: 900;
+}
+
+
+
+/* Small devices - phones */
+@media  screen and (max-width: 600px) {
+    #desktop, #tablet {
+        display: none;
+    }
+
+    #controls {
+        display: block;
+        text-align: center;
+    }
+
+
+    #form {
+        column-gap: 0px;
+        margin: 0px;
+        
+    }
+     
+    #form input {
+        display: block;
+        margin: 0px;;
+        border-right: none;
+        width: 100%;
+        border: 1px solid black;
+    }
+
+    form .button {
+        border-radius: 0px 10px 10px 0px;
+        height: 100%;
+    }
+
+    #reset {
+        width: 100%;
+    }
+
+    input {
+        margin-bottom: 10px;
+        
+    }
+
+    .
+}
+
+/* larger devices (tablets, phones in desktop mode) - portrait */
+@media screen and (min-width: 600px) and (orientation: portrait) {
+    #desktop, #phone {
+        display: none;
+    }
+}
+
+/* larger devices (tablets, phones) - landscape */
+@media screen and (min-width: 600px) and (orientation: landscape) {
+    #desktop, #phone {
+        display: none;
+    }
 }
