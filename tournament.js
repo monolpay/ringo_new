@@ -137,6 +137,6 @@ class Tournament {
         this.teams = []
         this.winners = []
         this.order_tournament_clear()
-        this.render.updateAllExceptForScoreboard()
+        this.render.updateAll()
     }
 }
