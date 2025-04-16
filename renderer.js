@@ -33,21 +33,24 @@ class Renderer {
     }
 
     updateTable(teams){
-        this.columns = 1
-        this.rows = 1
-        document.getElementsByTagName("table")[0].innerHTML="<tr><td id='theOnlyOne'></td></tr>"
-        for(let i=0; i<teams.length; i++){
-            document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i].name+'</p></td>')
-            document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i].name+'</p></td></tr>')
-            this.rows++
-            this.columns++
-        }
+
+        // Tabulka uz neexistuje
+
+        // this.columns = 1
+        // this.rows = 1
+        // document.getElementsByTagName("table")[0].innerHTML="<tr><td id='theOnlyOne'></td></tr>"
+        // for(let i=0; i<teams.length; i++){
+        //     document.getElementsByTagName("tr")[0].getElementsByTagName("td")[0].insertAdjacentHTML("afterend", '<td><p>'+teams[i].name+'</p></td>')
+        //     document.getElementsByTagName("table")[0].insertAdjacentHTML("beforeend", '<tr><td><p>'+teams[i].name+'</p></td></tr>')
+        //     this.rows++
+        //     this.columns++
+        // }
             
-        for(let i = 1; i<this.rows-1; i++){ //generování prázdných políček
-            for(let x = 1; x<this.columns-i; x++){
-                document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
-            }
-        }
+        // for(let i = 1; i<this.rows-1; i++){ //generování prázdných políček
+        //     for(let x = 1; x<this.columns-i; x++){
+        //         document.getElementsByTagName("tr")[i].insertAdjacentHTML("beforeend", '<td><p></p></td>')
+        //     }
+        // }
     }
 
     updateAll(){
