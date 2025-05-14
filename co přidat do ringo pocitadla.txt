@@ -5,6 +5,8 @@ keyboard support
 save/load tournament (json)
 bonus: udělat víc oken, který by komunikovaly spolu - přes cookies??? nevíme jestli jde
 
+online live sledování zápasu 
+
 -----
 
 # Co je třeba dodělat:
