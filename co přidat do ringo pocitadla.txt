@@ -1,9 +1,7 @@
 statistika hry (délka hry, průměrná délka podání...)
 tabulka s týmy (přidáváním týmů se generuje tabulka, do té se automaticky zapisujou výsledky, tabulka automaticky i mění týmy a volá je na hřiště)
-scoreboard
 keyboard support
 save/load tournament (json)
-bonus: udělat víc oken, který by komunikovaly spolu - přes cookies??? nevíme jestli jde
 
 online live sledování zápasu 
 
