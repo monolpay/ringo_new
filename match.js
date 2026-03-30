@@ -32,6 +32,10 @@ class Match {
         this.tournament.matchEnded(side);
     }
 
+    rotate(){
+        alert("Tocite se")
+    }
+
     static points(button, tournament) {
         const match = tournament.currMatch
         switch (button) {
@@ -59,6 +63,9 @@ class Match {
         match.render.updatePoints()
         if (match.shouldEndSet()) {
             match.resolveSetEnd();
+        }
+        if((match.pointsL + match.pointsR) % 3 == 0){
+            match.rotate();
         }
     }
 
@@ -117,4 +124,6 @@ class Match {
         this.pointsL = 0
         this.pointsR = 0
     }
+
+    
 }
