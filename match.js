@@ -64,7 +64,7 @@ class Match {
         if (match.shouldEndSet()) {
             match.resolveSetEnd();
         }
-        if((match.pointsL + match.pointsR) % 3 == 0){
+        if((match.pointsL + match.pointsR) % 6 == 0){
             match.rotate();
         }
     }
