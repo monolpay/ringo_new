@@ -9,4 +9,8 @@ class Team {
     addPoints(points) {
         this.points += points
     }
+
+    setName(name){
+        this.name = name
+    }
 }

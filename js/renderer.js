@@ -28,8 +28,9 @@ class Renderer {
     }
 
     updateTeams() {
-        document.getElementById("nameL").textContent = this.match.teamL.name
-        document.getElementById("nameR").textContent = this.match.teamR.name
+        if(this.match.teamL != undefined){document.getElementById("nameL").textContent = this.match.teamL.name}
+        if(this.match.teamR != undefined){document.getElementById("nameR").textContent = this.match.teamR.name}
+        
     }
 
     updateTable(teams){

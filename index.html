@@ -15,7 +15,17 @@
 <div>
     <div id="points">    
         <div id="left">
-            <p id="nameL" class="name">Název týmu</p>
+            <div class="name">
+                <div id="changingNameL" style="display: none;">
+                    <input type="text" class="editTeam" id="editTeamL">
+                    <button name="save" onclick="t.changeTeamName('L', document.getElementById('editTeamL').value)">Save</button>
+                    <button name="cancel" onclick="t.closeEditTeam('L')">Cancel</button>
+                </div>
+                    <div id="notChangingNameL">               
+                        <p id="nameL" onclick="t.editTeamName('L')">Název týmu</p>
+                    </div>
+            </div>
+            
             <p id="pointsL" class="point">0</p>
             <p id="setsL" class="set">0</p>
             <button id="minusL" class="pointButton" onclick="Match.points(Button.MINUSL, t)" >-</button>
@@ -25,7 +35,16 @@
             <button id="both" class="bottom" onclick="Match.points(Button.BOTH, t)">bod pro oba</button>
         </div>
         <div id="right">
-            <p id="nameR" class="name">Název týmu</p>  
+            <div class="name">
+                <div id="changingNameR" style="display: none;">
+                    <input type="text" class="editTeam" id="editTeamR">
+                    <button name="save" onclick="t.changeTeamName('R', document.getElementById('editTeamR').value)">Save</button>
+                    <button name="cancel" onclick="t.closeEditTeam('R')">Cancel</button>
+                </div>
+                    <div id="notChangingNameR">               
+                        <p id="nameR" onclick="t.editTeamName('R')">Název týmu</p>
+                    </div>
+            </div>
             <p id="pointsR" class="point">0</p>     
             <p id="setsR" class="set">0</p>
             <button id="minusR" class="pointButton" onclick="Match.points(Button.MINUSR, t)">-</button>
@@ -44,7 +63,7 @@
         <input type="text" name="maxPoints" placeholder="Skóre na set" id="maxPoints" onchange="t.maxPoints=Number(this.value)">
         <input type="text" name="maxSets" placeholder="Počet setů" id="maxSets" onchange="t.maxSets=Number(this.value)">
           
-        <form action="" onsubmit="return t.newTeam()" method="post" autocomplete="off"  id="form">
+        <form action="" onsubmit="return t.newTeam(document.getElementById('teamName').value)" method="post" autocomplete="off"  id="form">
             <input type="text" name="teamName" placeholder="Název týmu" id="teamName">
             <input type="submit" value="Přidat tým" class="button" id="addTeam">
         </form>
@@ -64,9 +83,9 @@
     
 </body>
 </html>
-<script src="renderer.js"></script>
-<script src="team.js"></script>
-<script src="tournament.js"></script>
-<script src="match.js"></script>
-<script src="buttons.js"></script>
-<script src="main.js"></script>
+<script src="./js/renderer.js"></script>
+<script src="./js/team.js"></script>
+<script src="./js/tournament.js"></script>
+<script src="./js/match.js"></script>
+<script src="./js/buttons.js"></script>
+<script src="./js/main.js"></script>

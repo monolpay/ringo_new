@@ -28,6 +28,14 @@ class Match {
         this.setsR = 0
     }
 
+    getTeamLeft(){
+        return this.teamL
+    }
+
+    getTeamRight(){
+        return this.teamR
+    }
+
     win(side) {
         this.tournament.matchEnded(side);
     }
