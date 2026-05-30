@@ -90,5 +90,15 @@ class Renderer {
         // }
         
     }
+
+    renderTeamEditor(){
+        let i = 0;
+        for(team in this.t.getTeams()){
+            document.getElementById('teamList').insertAdjacentHTML("beforeend", 
+                '<div id="teamListItem"><p id="teamName'+i+'">'+team.name+'</p><button onclick="t.changeTeamNameInEditor('+i+')>edit</button><button>delete</button>"</div>'
+
+            )
+        }
+    }
 }
 

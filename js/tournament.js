@@ -174,4 +174,12 @@ class Tournament {
     this.order_tournament_clear();
     this.render.updateAll();
   }
+
+  getOrderedMatches() {
+    return this.ordered_matches;
+  }
+
+  getTeams() {
+    return this.teams;
+  }
 }
